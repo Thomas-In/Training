@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-probe-test
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /none_exist  # keypoint
+            port: 80
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          periodSeconds: 10
+        env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        command: ["/bin/sh"]
+        args: ["-c", "echo $POD_IP both probe work normally > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"]

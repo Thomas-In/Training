@@ -1,0 +1,10 @@
+apiVersion: k6.io/v1alpha1
+kind: K6
+metadata:
+  name: k6-hello-rancher
+spec:
+  parallelism: 3
+  script:
+    configMap:
+      name: hello-rancher-stress-test
+      file: hello-rancher.js

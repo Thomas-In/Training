@@ -38,3 +38,7 @@ k get pod busybox -o yaml | k neat > neat-busybox.yaml
 git clone https://github.com/johanhaleby/kubetail.git /opt/kubetail
 ln -s /opt/kubetail/kubetail /usr/local/bin/kubetail
 kubetail fluent-bit* -n logging
+
+### df-pv plugin
+kubectl krew install df-pv
+k df-pv -n keycloak25

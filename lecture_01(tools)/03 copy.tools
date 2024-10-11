@@ -1,0 +1,44 @@
+### kubectx, kubens
+sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens 
+
+# kube-ps1: Kubernetes prompt for bash and zsh
+sudo git clone https://github.com/jonmosco/kube-ps1.git /opt/kube-ps1
+chmod a+x /opt/kube-ps1/kube-ps1.sh
+PS1='[\u@\h \W $(kube_ps1)]\$ '
+KUBE_PS1_SYMOBOL_ENABLE=false
+
+
+### krew kubectl plugin
+https://krew.sigs.k8s.io/docs/user-guide/setup/install/
+(
+  set -x; cd "$(mktemp -d)" &&
+  OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+  ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+  KREW="krew-${OS}_${ARCH}" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+  tar zxvf "${KREW}.tar.gz" &&
+  ./"${KREW}" install krew
+)
+
+# vi ~/.bashrc
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# source ~/.bashrc
+# kubectl krew search
+
+### kube neat install
+kubectl krew install neat
+kubectl run nginx --image=nginx
+kubectl run busybox --image=busybox
+k get pod busybox -o yaml > native-busybox.yaml
+k get pod busybox -o yaml | k neat > neat-busybox.yaml
+
+### kubetail install
+git clone https://github.com/johanhaleby/kubetail.git /opt/kubetail
+ln -s /opt/kubetail/kubetail /usr/local/bin/kubetail
+kubetail fluent-bit* -n logging
+
+### df-pv plugin
+kubectl krew install df-pv
+k df-pv -n keycloak25

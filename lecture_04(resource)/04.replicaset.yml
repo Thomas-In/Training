@@ -1,19 +1,23 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
+  name: ubuntu
   labels:
-    app: rs-nginx
-  name: rs-nginx
+    env: test
+    app: ubuntu
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: po-nginx
+      app: ubuntu
   template:
     metadata:
       labels:
-        app: po-nginx
+        env: test
+        app: ubuntu
     spec:
       containers:
-      - image: nginx
-        name: nginx
+      - name: ubuntu
+        image: ubuntu
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do echo hello; sleep 1; done"]

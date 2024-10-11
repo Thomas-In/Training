@@ -1,7 +1,7 @@
 apiVersion: k6.io/v1alpha1
 kind: K6
 metadata:
-  name: k6-hello-rancher
+  name: k6-hello-rancher-wo-prometheus
 spec:
   parallelism: 3
   script:

@@ -5,4 +5,4 @@ metadata:
 spec:
   containers:
   - name: nginx-pod
-    image: nginx:1.19.19  # 존재하지 않는 이미지 버전입니다.
+    image: nginx:1.19.19

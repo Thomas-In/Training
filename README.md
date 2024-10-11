@@ -9,7 +9,6 @@
 ```yaml
 version: 2.1
 
-# Define the jobs we want to run for this project
 jobs:
   build:
     docker:

@@ -5,7 +5,7 @@ metadata:
   namespace: development
 subjects:
 - kind: User
-  name: ThomasIn        # "name" is case sensitive
+  name: thomasin        # "name" is case sensitive
   apiGroup: ""
 roleRef:
   kind: Role

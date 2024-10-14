@@ -9,6 +9,9 @@ systemctl enable sftpd.service
 systemctl start sftpd.service
 
 3. RMS
+# install
+curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE="server" sh -
+
 mkdir -p /etc/rancher/rke2
 cat << EOF >> /etc/rancher/rke2/config.yaml
 cni: "cilium"

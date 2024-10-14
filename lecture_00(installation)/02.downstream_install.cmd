@@ -3,7 +3,7 @@ Cluster Create
 > CNI : cilium
 > copy registration command & paste on downstream nodes (check etcd/control plane/worker)
 
-2. 사전작업
+2. 사전작업 (ALL)
 cat << EOF >> /etc/rancher/rke2/config.yaml
 kubelet-arg:
   - "max-pods=220"
@@ -33,7 +33,7 @@ helm version --client --short
 5. k9s
 curl -sL https://github.com/derailed/k9s/releases/download/v0.26.3/k9s_Linux_x86_64.tar.gz | tar xfz - -C /usr/local/bin k9s
 
-6. longhorn 사전작업
+6. longhorn 사전작업 (ALL)
 dnf install iscsi-initiator-utils -y
 systemctl start iscsid.service
 systemctl status iscsid.service

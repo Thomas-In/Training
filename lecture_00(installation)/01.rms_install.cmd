@@ -12,7 +12,7 @@ systemctl start sftpd.service
 # install
 VERSION=v1.28.10+rke2r1
 curl -sfL https://get.rke2.io | sudo INSTALL_RKE2_VERSION=$VERSION INSTALL_RKE2_TYPE=server sh -
-curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE="server" sh -
+#curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE="server" sh -
 
 mkdir -p /etc/rancher/rke2
 cat << EOF >> /etc/rancher/rke2/config.yaml
@@ -74,7 +74,8 @@ k scale --replicas=1 deployment/cilium-operator -n kube-system
 
 10. rancher 설치
 helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
-helm install rancher rancher-stable/rancher --namespace cattle-system --set hostname=10.206.39.10.nip.io --set replicas=1 --version 2.8.3 --create-namespace
+#helm install rancher rancher-stable/rancher --namespace cattle-system --set hostname=10.206.39.10.nip.io --set replicas=1 --version 2.8.3 --create-namespace
+helm install rancher rancher-stable/rancher --namespace cattle-system --set hostname=10.206.39.10.nip.io --set replicas=1 --create-namespace
 
 # 참조
 password-min-length 값 수정

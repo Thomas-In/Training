@@ -10,6 +10,8 @@ systemctl start sftpd.service
 
 3. RMS
 # install
+VERSION=v1.28.10+rke2r1
+curl -sfL https://get.rke2.io | sudo INSTALL_RKE2_VERSION=$VERSION INSTALL_RKE2_TYPE=server sh -
 curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE="server" sh -
 
 mkdir -p /etc/rancher/rke2

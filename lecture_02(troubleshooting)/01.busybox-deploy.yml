@@ -12,7 +12,7 @@ spec:
   template:    
     metadata:
       labels:
-        app: busybox1
+        app: busybox2
     spec:
       containers:
       - name: busybox

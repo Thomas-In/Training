@@ -4,7 +4,6 @@ nslookup nginx-svc
 wget -O- nginx-svc |grep nginx-svc
 wget -O- nginx-svc |grep nginx
 
-
 # nginx replicas 1 ->3 으로 변경
 k get endpoints # endpoints 추가됨을 확인
 k exec -it busybox -- sh

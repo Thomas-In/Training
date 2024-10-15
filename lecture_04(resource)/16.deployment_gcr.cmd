@@ -15,7 +15,7 @@ kubectl patch deploy webserver --type strategic \
 kubectl get deploy webserver -o jsonpath='{.spec.strategy}' | jq
 
 # Image 변경으로 인한 Recreate 정책 적용확인
-kubectl set image deploy webserver gcr.io/google-samples/hello-app:2.0
+kubectl set image deploy webserver hello-app=gcr.io/google-samples/hello-app:2.0
 kubectl get pod -l app=webserver
 kubectl get pod -l app=webserver \
 -o=custom-columns=NAME:.metadata.name,IMAGE:.spec.containers[*].image

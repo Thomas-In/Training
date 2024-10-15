@@ -1,5 +1,5 @@
 # Deployment 생성 
-kubectl create deploy webserver --image quay.io/nginx/nginx-ingress:3.6.0 --replicas=2
+kubectl create deploy webserver --image quay.io/travelping/nettools:v1.11.0 --replicas=2
 # 생성된 Deployment 및 Pod 확인 
 kubectl get deploy,pod -l app=webserver
 # 생성된 Pod의 컨테이너 이미지 확인
@@ -15,7 +15,7 @@ kubectl patch deploy webserver --type strategic \
 kubectl get deploy webserver -o jsonpath='{.spec.strategy}' | jq
 
 # Image 변경으로 인한 Recreate 정책 적용확인
-kubectl set image deploy webserver quay.io/nginx/nginx-ingress:3.7.0
+kubectl set image deploy webserver quay.io/travelping/nettools:v1.12.0
 kubectl get pod -l app=webserver
 kubectl get pod -l app=webserver \
 -o=custom-columns=NAME:.metadata.name,IMAGE:.spec.containers[*].image

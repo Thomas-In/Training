@@ -43,7 +43,7 @@ spec:
     args:
     - nslook kubernetes # typo issue
   restartPolicy: OnFailure
----
+--- (확인)
 apiVersion: v1
 kind: Pod
 metadata:

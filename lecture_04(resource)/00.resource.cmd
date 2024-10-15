@@ -5,7 +5,6 @@ k apply -f replicaset.yml
 k get pod -A | egrep 'manual|ubuntu'
 k get replicaset ubuntu
 
-
 # 노드에 부여된 Label  확인 
 kubectl get node --show-labels
 

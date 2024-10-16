@@ -14,7 +14,7 @@ kubectl exec -i -t pod-emptydir --container html-builder -- cat /html-dir/index.
 [hostPath]
 k apply -f hostPath.yml
 k get pod -A |grep hostpath
-k exec -i -t deploy-hostpath-6fd9b9b69b-9dr5d -- ls -l /host-log  
+k exec -i -t deploy-hostpath-6fd9b9b69b-9dr5d -- ls -l /host-log
 k exec -i -t deploy-hostpath-6fd9b9b69b-9dr5d -- touch /host-log/sample-file
 ls -l /var/log              # check the log file, node
 

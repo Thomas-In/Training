@@ -19,9 +19,8 @@ spec:
       name: empty-directory 
     command: ["/bin/sh", "-c"]
     args: 
-      - echo "This page created on $(date +%Y-%m-%d)" > /html-dir/index.html;
+      - echo "This page created on $(date +%Y-%m-%d/%H:%M:%S)" > /html-dir/index.html;
         sleep infinity;
-
   volumes:
   - name: empty-directory 
     emptyDir: {}

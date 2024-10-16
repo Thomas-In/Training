@@ -20,9 +20,9 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6InlfcFFGcWtVUklXWXlnWWhTWEZNZFVWOUpMck9wTWpUN0NBdFJs
 ---
 [2nd node]
 kubectx
-k create deployment nginx --image=nginx
+k create deployment nginx --image=nginx -n wordpress
 k get pod
-k get pod -n default
+k get pod -n wordpress
 k create deployment nginx --image=nginx -n default
 k get pv
 k get ns

@@ -10,8 +10,8 @@ metadata:
   namespace: metallb
 spec:
   addresses:
-  - 192.168.31.54-192.168.31.54
-  autoAssign: true
+  - 192.168.31.54-192.168.31.60
+  autoAssign: false
 ---
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement

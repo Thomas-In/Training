@@ -1,5 +1,5 @@
 k create ns development
-k apply f role.yaml
+k apply -f role.yaml
 k apply -f rolebinding.yaml
 
 k get roles -n development
@@ -7,12 +7,14 @@ k get rolebindings -n development
 k describe role developer -n development
 k describe rolebinding developer-role-binding -n development
 
+--- verify for RBAC
 kubectl auth can-i list pods -n development --as thomasin
 kubectl auth can-i delete pods -n development --as thomasin
 kubectl auth can-i list daemonsets -n development --as thomasin
 
 [deploy sample pod]
 # kubectl run busybox --image=busybox --command --restart=Never -n development
+# k get pod -n development
 
 [crete a new user in k8s cluster]
 1. Generate a private key using RSA algorithm (4096 bits):
